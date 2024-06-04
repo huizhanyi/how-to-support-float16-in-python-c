@@ -8,7 +8,7 @@ namespace py = pybind11;
 py::array_t<double> add_arrays(py::array_t<double> input1, py::array_t<double> input2, std::map<std::string, long int> x) {
     py::buffer_info buf1 = input1.request(), buf2 = input2.request();
     for (auto ptr : x) {
-        std::cout << std::hex << ptr.second << std::endl;
+        std::cout << "C++: " << std::hex << ptr.second << std::endl;
     }
     if (buf1.ndim != 1 || buf2.ndim != 1)
         throw std::runtime_error("Number of dimensions must be one");

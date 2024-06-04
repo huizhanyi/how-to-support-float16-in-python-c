@@ -32,7 +32,7 @@ template<typename T>
 void multiply(py::array_t<T>& data) {
     auto data_ptr = static_cast<T*>(data.request().ptr);
     auto size = data.size();
-    std::cout << std::hex << data_ptr << std::endl;
+    std::cout << "C++: " << std::hex << data_ptr << std::endl;
     for (int i = 0; i < size; i++) {
         if constexpr (std::is_same_v<T, long double>) { data_ptr[i] *= T(5); }
         else if constexpr (std::is_same_v<T, double>) { data_ptr[i] *= T(4); }
